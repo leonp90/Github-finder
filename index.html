@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/main.css">
-    <title>Github Finder</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/main.css">
+	<title>Github Finder</title>
 </head>
 <body>
 
 	<div class="body-container">
 
-		<form action="">
+		<form action="" id="search-form">
 
 			<div class="form-container">
 
 				<div class="input-container">
-					<input type="text" placeholder="Search username...">
+					<input type="text" placeholder="Search username..." name="username">
 				</div>
 
 				<div class="button-container">
-					<button>Search</button>
+					<button id="search-button" type="submit">Search</button>
 				</div>
 
 
+			</div>
+
+			<div id="user-name">
+				
+			</div>
+
+			<div id="user-repos">
+				
 			</div>
 
 		</form>	
@@ -31,4 +39,40 @@
 
 	
 </body>
+
+
+<script>
+
+	
+	document.querySelector("#search-form").addEventListener("submit", function(e){
+		
+
+        e.preventDefault();    //stop form submitting
+		var username=e.target[0].value;
+		var url = "https://api.github.com/users/" + username;
+		function getUser(username) {
+		
+		console.log(username + " <---username");
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', url, true);
+		xhr.onreadystatechange = function(){
+			console.log(xhr.status+"<---xhr status")
+			console.log(xhr.readyState+"<---readystate");
+			console.log(xhr.responseText+"response text");
+			userResponse= xhr.responseText;
+		};
+
+		xhr.send();
+
+		}
+
+		getUser(username);
+
+   
+	});
+	
+
+
+</script>
+
 </html>
