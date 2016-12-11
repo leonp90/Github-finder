@@ -54,10 +54,12 @@ button{
 	display: inline-block;
 }
 #user-info{
-	padding: 20px;
 	height: 100%;
 	flex-wrap: wrap;
 	max-width: 50%;
+}
+#user  div> p, h1{
+	padding-left: 20px;
 }
 #user-info h1{
 	width: 100%;
@@ -65,4 +67,11 @@ button{
 }
 #user-info p{
 	font-size: 20px;
+}
+.error {
+	background: #F9DEDE;
+	color: #A73F3E;
+	padding: 20px;
+	border: 1px solid #D7BBBB;
+	border-radius: 3px;
 }

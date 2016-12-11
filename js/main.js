@@ -10,8 +10,11 @@ document.querySelector("#search-form").addEventListener("submit", function(e){
 
 
 			function onError(data) {
-		        messageError = data.message
-				console.log(messageError);
+				let error = "Does not exist";
+				let messageError = document.getElementById("error");
+
+				messageError.innerHTML = error;
+				messageError.setAttribute("class", "error")
+		       
 		    };
 	});
-
